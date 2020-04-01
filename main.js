@@ -87,7 +87,6 @@ function generateStageImg(){
 
 		ctx.drawImage( img[stage[1]], 0, 0 );
 		ctx.drawImage( img[stage[2]], 828, 0 );
-		console.log(stage[3]);
 		ctx.drawImage( img[stage[3]], (828*2), 0 );
 		
 		//ステージを文字配列で記録
@@ -113,7 +112,7 @@ function generateStageImg(){
 	
 	//ツイートテキスト生成
 	let tweetText 	= "#コンパス バトルアリーナ\n"
-			+ (thisDate.getMonth() + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDate()] + "曜日)です。\n"
+			+ (thisDate.getMonth() + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDay()] + "曜日)です。\n"
 			+ "本日のステージは\n\n";
 	
 	for( let i = 0, l = stageArray.length; i < l; i++ ){
