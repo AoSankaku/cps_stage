@@ -36,13 +36,13 @@ function generateStageImg(){
 	//入力された日付をDate形式に変換して曜日を簡単に特定、比較できるようにする
 	let startFullDate = new Date( startDate[0], (startDate[1] - 1), startDate[2] );
 	
-	let startCount = document.forms.info1.startCount.value;
+	let dateCount = document.forms.info1.dateCount.value;
 	//入力された日付にstartCountを加算して曜日をこれも特定する
-	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + startCount));
+	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + dateCount));
 	let dayArray = ['日','月','火','水','木','金','土'];
 	
-	let detectDay = document.forms.info1.startCount.value;
-	let stageType = document.forms.info1.startCount.value;
+	let detectDay = document.forms.info1.dateCount.value;
+	let stageType = document.forms.info1.dateCount.value;
 	
 	let stage = [];
 	stage[1] = document.forms.info1.stage1.value;
@@ -101,7 +101,7 @@ function generateStageImg(){
 	
 	//ツイートテキスト生成
 	let tweetText 	= "#コンパス バトルアリーナ\n"
-			+ (thisDate.getMonth + 1) + "月シーズン " + startCount + "日目(" + dayArray[thisDate.getDate()] + ")です。\n"
+			+ (thisDate.getMonth + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDate()] + ")です。\n"
 			+ "本日のステージは\n\n";
 	
 	for( let i = 0, l = stageArray.length; i < l; i++ ){
