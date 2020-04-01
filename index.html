@@ -20,7 +20,9 @@
 </head>
 
 <body>
+<div align="center">
 <h1>#コンパス ステージローテ<br>画像ジェネレーター</h1>
+<div class="form">
 <h2>記入内容</h2>
 <form id="info1">
 	<h3>【1】基本情報入力</h3>
@@ -34,7 +36,9 @@
 			<option value="random">完全ランダム</option>
 			<option value="3stages">3ステージ中からランダム</option>
 		</select>
-
+</div>
+<br>
+<div class="form">
 	<h3>【2】ステージ選択</h3>
 		<p>ステージ1</p>
 		<select id="stage1">
@@ -85,6 +89,7 @@
 			<option value="13">かけだせ！じっぱか城</option>
 		</select>
 </form>
+</div>
 
 <canvas id="result" width="2484" height="1792"></canvas>
 <img id="resultImg">
@@ -92,5 +97,6 @@
 <textarea id="tweetText">ここにツイートする場合のテキスト文が出力されます</textarea>
 </form>
 <div>リセット</div>
+</div>
 </body>
 </html>
