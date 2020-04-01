@@ -113,7 +113,7 @@ function generateStageImg(){
 	
 	//ツイートテキスト生成
 	let tweetText 	= "#コンパス バトルアリーナ\n"
-			+ (thisDate.getMonth + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDate()] + ")です。\n"
+			+ (thisDate.getMonth() + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDate()] + "曜日)です。\n"
 			+ "本日のステージは\n\n";
 	
 	for( let i = 0, l = stageArray.length; i < l; i++ ){
