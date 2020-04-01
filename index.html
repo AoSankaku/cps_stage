@@ -21,17 +21,27 @@
 
 <body>
 <h1>#コンパス ステージローテ<br>画像ジェネレーター</h1>
-<h2>記入内容<h2>
-<form>
-<select id="stageType">
-	<option value="random">完全ランダム</option>
-	<option value="3stages">3ステージ中からランダム</option>
-</select>
+<h2>記入内容</h2>
+<form id="info1">
+	<h3>【1】基本情報入力</h3>
+		<p>シーズン開始日</p>
+		<input type="date">
+		<p>該当日<p>
+		<input type="text"><p>日目</p>
+		<input type="checkbox">曜日を自動検出しない
+		<p>ステージ決定方法</p>
+		<select id="stageType">
+			<option value="random">完全ランダム</option>
+			<option value="3stages">3ステージ中からランダム</option>
+		</select>
+<h3>【2】ステージ選択</h3>
 </form>
 
 <canvas id="result" width="2484" height="1792"></canvas>
 <img id="resultImg">
+<form id="result">
 <textarea id="tweetText">ここにツイートする場合のテキスト文が出力されます</textarea>
+</form>
 <div>リセット</div>
 </body>
 </html>
