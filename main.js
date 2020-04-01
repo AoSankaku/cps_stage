@@ -43,9 +43,10 @@ function generateStageImg(){
 	let detectDay = document.forms.info1.startCount.value;
 	let stageType = document.forms.info1.startCount.value;
 	
-	let stage[1] = document.forms.info1.stage1.value;
-	let stage[2] = document.forms.info2.stage1.value;
-	let stage[3] = document.forms.info3.stage1.value;
+	let stage = [];
+	stage[1] = document.forms.info1.stage1.value;
+	stage[2] = document.forms.info2.stage1.value;
+	stage[3] = document.forms.info3.stage1.value;
 	
 	
 	//フォームのロック作業などは下の方で行う（onChangeに組み込む）
