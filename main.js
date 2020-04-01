@@ -50,7 +50,7 @@ function generateStageImg(){
 	
 	let dateCount = document.forms.info1.dateCount.value;
 	//入力された日付にstartCountを加算して曜日をこれも特定する
-	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + dateCount));
+	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + dateCount - 1));
 	let dayArray = ['日','月','火','水','木','金','土'];
 	
 	let detectDay = document.forms.info1.dateCount.value;
