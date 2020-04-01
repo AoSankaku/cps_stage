@@ -39,6 +39,7 @@ function generateStageImg(){
 	let startCount = document.forms.info1.startCount.value;
 	//入力された日付にstartCountを加算して曜日をこれも特定する
 	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + startCount));
+	let dayArray = ['日','月','火','水','木','金','土'];
 	
 	let detectDay = document.forms.info1.startCount.value;
 	let stageType = document.forms.info1.startCount.value;
@@ -47,6 +48,9 @@ function generateStageImg(){
 	stage[1] = document.forms.info1.stage1.value;
 	stage[2] = document.forms.info2.stage1.value;
 	stage[3] = document.forms.info3.stage1.value;
+	
+	let stageArray = [];
+	let stageNames = document.forms.info1.stage1.innerText.split('\n');
 	
 	
 	//フォームのロック作業などは下の方で行う（onChangeに組み込む）
@@ -71,26 +75,42 @@ function generateStageImg(){
 		
 		//
 
-		ctx.drawImage( img[stage[1]], 100, 100 );
+		ctx.drawImage( img[stage[1]], 0, 0 );
+		ctx.drawImage( img[stage[2]], 828, 0 );
+		ctx.drawImage( img[stage[3]], (828*2), 0 );
 		
-		//
-		
+		//ステージを文字配列で記録
+		stageArray.push(stageNames[stage[1]]);
+		stageArray.push(stageNames[stage[2]]);
+		stageArray.push(stageNames[stage[3]]);
+				
 	} else {
 		
 		//ランダムステージ
-		
+		stageArray.push('ランダム');
 		
 	}
 	
 	
 	//ダウンロード可能な画像に変換
-	
+	let base64 = can.toDataURL();
+	document.getElementById('resultImg').src = base64;
 	
 	//ダウンロードボタン開放
 	
 	
 	//ツイートテキスト生成
+	let tweetText 	= "#コンパス バトルアリーナ\n"
+			+ (thisDate.getMonth + 1) + "月シーズン " + startCount + "日目(" + dayArray[thisDate.getDate()] + ")です。\n"
+			+ "本日のステージは\n\n";
 	
+	for( let i = 0, l = stageArray.length; i < l; i++ ){
+		tweetText += "【" + stageArray[i] + "】\n";
+	}
+	
+	tweetText	+= "\nです。\n\n#コンパス #コンパスステージローテ";
+	
+	document.forms.result.tweetText.value = tweetText;
 	
 }
 
