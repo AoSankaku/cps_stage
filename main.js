@@ -46,8 +46,8 @@ function generateStageImg(){
 	
 	let stage = [];
 	stage[1] = document.forms.info1.stage1.value;
-	stage[2] = document.forms.info2.stage1.value;
-	stage[3] = document.forms.info3.stage1.value;
+	stage[2] = document.forms.info1.stage2.value;
+	stage[3] = document.forms.info1.stage3.value;
 	
 	let stageArray = [];
 	let stageNames = document.forms.info1.stage1.innerText.split('\n');
