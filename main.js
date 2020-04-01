@@ -30,23 +30,66 @@ const can = document.getElementById('result');
 const ctx = can.getContext('2d');
 
 function generateStageImg(){
-	//フォームの内容を読み込み
+	//フォームの内容を読み込み、変換
 	let startDate = document.forms.info1.startDate.value;
+	startDate = startDate.split('-');
+	//入力された日付をDate形式に変換して曜日を簡単に特定、比較できるようにする
+	let startFullDate = new Date( startDate[0], (startDate[1] - 1), startDate[2] );
+	
 	let startCount = document.forms.info1.startCount.value;
+	//入力された日付にstartCountを加算して曜日をこれも特定する
+	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + startCount));
+	
 	let detectDay = document.forms.info1.startCount.value;
 	let stageType = document.forms.info1.startCount.value;
 	
-	let stage1 = document.forms.info1.stage1.value;
-	let stage2 = document.forms.info2.stage1.value;
-	let stage3 = document.forms.info3.stage1.value;
+	let stage[1] = document.forms.info1.stage1.value;
+	let stage[2] = document.forms.info2.stage1.value;
+	let stage[3] = document.forms.info3.stage1.value;
 	
-	//フォームの内容に応じてCanvasに描画（ランダムの場合は別途処理）
+	
+	//フォームのロック作業などは下の方で行う（onChangeに組み込む）
+	//ランダムの曜日かどうか判定（形式上）
+	if( !document.forms.info1.detectDay.checked ){
+		if( thisDate.getDay() == 0 || thisDate.getDay() == 6 ){
+			stageType = 'random';
+		} else {
+			stageType = '3stages';
+		}
+	}
+	
+	//stageTypeの内容に応じてCanvasに描画（ランダムの場合は別途処理）
+	if( stageType == '3stages' ){
+		
+		//選択ステージをソート
+		stage.sort(function(a,b){
+			if( a < b ) return -1;
+			if( a > b ) return 1;
+			return 0;
+		});
+		
+		//
+
+		ctx.drawImage( img[stage[1]], 100, 100 );
+		
+		//
+		
+	} else {
+		
+		//ランダムステージ
+		
+		
+	}
+	
 	
 	//ダウンロード可能な画像に変換
 	
+	
 	//ダウンロードボタン開放
 	
+	
 	//ツイートテキスト生成
+	
 	
 }
 
