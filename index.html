@@ -22,7 +22,7 @@
 
 <body>
 <div align="center">
-<h1>#コンパス ステージローテ<br>画像ジェネレーター</h1>
+<h1>#コンパス ステージ<br>画像ジェネレーター</h1>
 <div class="form">
 <h2>記入内容</h2>
 <form id="info1">
@@ -90,6 +90,11 @@
 			<option value="13">かけだせ！じっぱか城</option>
 		</select>
 </form>
+
+<div class="container">
+<a href="javascript:generateStageImg();" class="btn-open">ステージ画像を生成</a>
+</div>
+
 </div>
 
 <canvas id="result" width="2484" height="1792"></canvas>
@@ -97,7 +102,6 @@
 <form id="result">
 <textarea id="tweetText">ここにツイートする場合のテキスト文が出力されます</textarea>
 </form>
-<div>リセット</div>
 </div>
 </body>
 </html>
