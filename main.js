@@ -79,13 +79,11 @@ function generateStageImg(){
 	if( stageType == '3stages' ){
 		
 		//選択ステージをソート
-		stage.sort(function(a,b){
+		/*stage.sort(function(a,b){
 			if( a < b ) return -1;
 			if( a > b ) return 1;
 			return 0;
-		});
-		
-		//
+		});*/
 
 		ctx.drawImage( img[stage[1]], 0, 0 );
 		ctx.drawImage( img[stage[2]], 828, 0 );
