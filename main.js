@@ -29,6 +29,18 @@ img[13].src = "img/13.png";
 const can = document.getElementById('result');
 const ctx = can.getContext('2d');
 
+
+
+
+
+function lockStageSelecter(){
+	
+}
+
+
+
+
+
 function generateStageImg(){
 	//フォームの内容を読み込み、変換
 	let startDate = document.forms.info1.startDate.value;
@@ -77,6 +89,7 @@ function generateStageImg(){
 
 		ctx.drawImage( img[stage[1]], 0, 0 );
 		ctx.drawImage( img[stage[2]], 828, 0 );
+		console.log(stage[3]);
 		ctx.drawImage( img[stage[3]], (828*2), 0 );
 		
 		//ステージを文字配列で記録
@@ -93,6 +106,7 @@ function generateStageImg(){
 	
 	
 	//ダウンロード可能な画像に変換
+	can.hidden = true;
 	let base64 = can.toDataURL();
 	document.getElementById('resultImg').src = base64;
 	
