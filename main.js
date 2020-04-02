@@ -147,6 +147,8 @@ function generateStageImg(){
 	}
 	*/
 	
+	console.log(stageType);
+	
 	//stageTypeの内容に応じてCanvasに描画（ランダムの場合は別途処理）
 	if( stageType == '3stages' ){
 		
