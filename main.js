@@ -39,7 +39,7 @@ img[1].onload = function(){
 
 
 function autoDetect(){
-	if( !document.forms.info1.dateCount.checked ){
+	if( !document.forms.info1.detectDay.checked ){
 		
 		document.forms.info1.blackchipEnabled.disabled = true;
 		document.forms.info1.stageType.disabled = true;
