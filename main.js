@@ -90,9 +90,9 @@ function generateStageImg(){
 		ctx.drawImage( img[stage[3]], (828*2), 0 );
 		
 		//ステージを文字配列で記録
-		stageArray.push(stageNames[stage[1]]);
-		stageArray.push(stageNames[stage[2]]);
-		stageArray.push(stageNames[stage[3]]);
+		stageArray.push(stageNames[stage[1] - 1]);
+		stageArray.push(stageNames[stage[2] - 1]);
+		stageArray.push(stageNames[stage[3] - 1]);
 				
 	} else {
 		
