@@ -60,30 +60,26 @@ function autoDetect(){
 		let thisDate = startFullDate.setDate( startFullDate.getDate() + dateCount - 1 );
 		thisDate = new Date(thisDate);
 		
-		//変更先
-		let blackchipEnabled = document.forms.info1.blackchipEnabled.checked;
-		let stageType = document.forms.info1.stageType.value;
-		
 		
 		//判定を行う
 		//ブラチ期間判定
 		if( dateCount <= 5 ){
 			console.log('bc is true');
-			blackchipEnabled = true;
+			document.forms.info1.blackchipEnabled.checked = true;
 		}else{
 			console.log('bc is false');
-			blackchipEnabled = false;
+			document.forms.info1.blackchipEnabled.checked = false;
 		}
 		
 		//ステージタイプ判定
 		if( thisDate.getDay() == 0 || thisDate.getDay() == 6 ){
-			stageType = 'random';
+			document.forms.info1.stageType.value = 'random';
 			document.forms.info1.stage1.disabled = true;
 			document.forms.info1.stage2.disabled = true;
 			document.forms.info1.stage3.disabled = true;
 			console.log('stageSelectors are disabled');
 		}else{
-			stageType = '3stages';
+			document.forms.info1.stageType.value = '3stages';
 			document.forms.info1.stage1.disabled = false;
 			document.forms.info1.stage2.disabled = false;
 			document.forms.info1.stage3.disabled = false;
