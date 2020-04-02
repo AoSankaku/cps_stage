@@ -54,6 +54,7 @@ function generateStageImg(){
 	//入力された日付にstartCountを加算して曜日をこれも特定する
 	let thisDate = startFullDate.setDate( startFullDate.getDate() + dateCount - 1 )
 	console.log(thisDate);
+	thisDate = new Date(thisDate);
 	console.log(thisDate.getDay());
 	let dayArray = ['日','月','火','水','木','金','土'];
 	
