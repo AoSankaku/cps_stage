@@ -38,8 +38,62 @@ img[1].onload = function(){
 
 
 
-function lockStageSelecter(){
-	let detectDay = document.forms.info1.dateCount.value;
+function autoDetect(){
+	if( !document.forms.info1.dateCount.checked ){
+		
+		document.forms.info1.blackchipEnabled.disabled = true;
+		document.forms.info1.stageType.disabled = true;
+		
+		//判定に必要な値が未入力なら処理を終える
+		if(!document.forms.info1.startDate.value){ return; }
+		if(!document.forms.info1.dateCount.value){ return; }
+		
+		//以下判定材料取得
+		let startDate = document.forms.info1.startDate.value;
+		startDate = startDate.split('-');
+		//入力された日付をDate形式に変換して曜日を簡単に特定、比較できるようにする
+		let startFullDate = new Date( startDate[0], (startDate[1] - 1), startDate[2] );
+		
+		let dateCount = document.forms.info1.dateCount.value;
+		dateCount = Number(dateCount);
+		//入力された日付にstartCountを加算して曜日をこれも特定する
+		let thisDate = startFullDate.setDate( startFullDate.getDate() + dateCount - 1 );
+		thisDate = new Date(thisDate);
+		
+		//変更先
+		let stage = [];
+		stage[1] = document.forms.info1.stage1.disabled;
+		stage[2] = document.forms.info1.stage2.disabled;
+		stage[3] = document.forms.info1.stage3.disabled;
+		let blackchipEnabled = document.forms.info1.blackchipEnabled.checked;
+		let stageType = document.forms.info1.dateCount.value;
+		
+		
+		//判定を行う
+		//ブラチ期間判定
+		if( dateCount <= 5 ){
+			blackchipEnabled = true;
+		}else{
+			blackchipEnabled = false;
+		}
+		
+		//ステージタイプ判定
+		if( thisDate.getDay() == 0 || thisDate.getDay() == 6 ){
+			stageType = 'random';
+			stage[1] = true;
+			stage[2] = true;
+			stage[3] = true;
+		}else{
+			stageType = '3stages';
+			stage[1] = false;
+			stage[2] = false;
+			stage[3] = false;
+		}
+		
+	} else {
+		document.forms.info1.blackchipEnabled.disabled = false;
+		document.forms.info1.stageType.disabled = false;
+	}
 }
 
 
@@ -52,18 +106,16 @@ function generateStageImg(){
 	startDate = startDate.split('-');
 	//入力された日付をDate形式に変換して曜日を簡単に特定、比較できるようにする
 	let startFullDate = new Date( startDate[0], (startDate[1] - 1), startDate[2] );
-	console.log(startFullDate);
 	
 	let dateCount = document.forms.info1.dateCount.value;
 	dateCount = Number(dateCount);
 	//入力された日付にstartCountを加算して曜日をこれも特定する
-	let thisDate = startFullDate.setDate( startFullDate.getDate() + dateCount - 1 )
-	console.log(thisDate);
+	let thisDate = startFullDate.setDate( startFullDate.getDate() + dateCount - 1 );
 	thisDate = new Date(thisDate);
-	console.log(thisDate.getDay());
 	let dayArray = ['日','月','火','水','木','金','土'];
 	
-	let detectDay = document.forms.info1.dateCount.value;
+	let detectDay = document.forms.info1.dateCount.checked;
+	let blackchipEnabled = document.forms.info1.blackchipEnabled.checked;
 	let stageType = document.forms.info1.dateCount.value;
 	
 	let stage = [];
@@ -123,14 +175,19 @@ function generateStageImg(){
 	
 	//ツイートテキスト生成
 	let tweetText 	= "#コンパス #バトルアリーナ\n"
-			+ (thisDate.getMonth() + 1) + "月シーズン " + dateCount + "日目(" + dayArray[thisDate.getDay()] + "曜日)です。\n\n"
+			+ thisDate.getFullYear() + "年" + (thisDate.getMonth() + 1) + "月シーズン "
+			+ dateCount + "日目(" + dayArray[thisDate.getDay()] + "曜日)です。\n\n"
 			+ "本日のステージは\n\n";
 	
 	for( let i = 0, l = stageArray.length; i < l; i++ ){
 		tweetText += "【" + stageArray[i] + "】\n";
 	}
 	
-	tweetText	+= "\nです。\n\n#コンパスステージローテ";
+	tweetText	+= "\nです。";
+	if(blackchipEnabled){
+		tweetText += "\n（ブラックチップ期間です）";
+	}
+	tweetText	+= "\n\n#コンパスステージローテ";
 	
 	document.forms.result.tweetText.value = tweetText;
 	
