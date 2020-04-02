@@ -94,9 +94,9 @@ function generateStageImg(){
 			return 0;
 		});*/
 		
-		ctx.drawImage( img[stage[1]], (img[stage[1]].width / 3 * 0), can.height );
-		ctx.drawImage( img[stage[2]], (img[stage[2]].width / 3 * 1), can.height );
-		ctx.drawImage( img[stage[3]], (img[stage[3]].width / 3 * 2), can.height );
+		ctx.drawImage( img[stage[1]], (img[stage[1]].width / 3 * 0), 0, (stage[1]].width / 3), can.height );
+		ctx.drawImage( img[stage[2]], (img[stage[2]].width / 3 * 1), 0, (stage[2]].width / 3), can.height );
+		ctx.drawImage( img[stage[3]], (img[stage[3]].width / 3 * 2), 0, (stage[3]].width / 3), can.height );
 		
 		//ステージを文字配列で記録
 		stageArray.push(stageNames[stage[1] - 1]);
