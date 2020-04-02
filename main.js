@@ -96,9 +96,9 @@ function generateStageImg(){
 		});*/
 		
 		//実際よりちょっと上寄りに描画する
-		ctx.drawImage( img[stage[1]], (img[stage[1]].width / 3 * 0 + 70), 0, (img[stage[1]].width / 3), (img[stage[1]].height / 3) );
-		ctx.drawImage( img[stage[2]], (img[stage[2]].width / 3 * 1 + 70), 0, (img[stage[2]].width / 3), (img[stage[2]].height / 3) );
-		ctx.drawImage( img[stage[3]], (img[stage[3]].width / 3 * 2 + 70), 0, (img[stage[3]].width / 3), (img[stage[3]].height / 3) );
+		ctx.drawImage( img[stage[1]], (img[stage[1]].width / 3 * 0), 70, (img[stage[1]].width / 3), (img[stage[1]].height / 3) );
+		ctx.drawImage( img[stage[2]], (img[stage[2]].width / 3 * 1), 70, (img[stage[2]].width / 3), (img[stage[2]].height / 3) );
+		ctx.drawImage( img[stage[3]], (img[stage[3]].width / 3 * 2), 70, (img[stage[3]].width / 3), (img[stage[3]].height / 3) );
 		
 		//ステージを文字配列で記録
 		stageArray.push(stageNames[stage[1] - 1]);
