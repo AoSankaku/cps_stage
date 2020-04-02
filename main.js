@@ -72,7 +72,7 @@ function autoDetect(){
 		}
 		
 		//ステージタイプ判定
-		if( thisDate.getDay() == 0 || thisDate.getDay() == 6 ){
+		if( thisDate.getDay() == 0 || thisDate.getDay() == 6 || dateCount == 1 ){
 			document.forms.info1.stageType.value = 'random';
 			document.forms.info1.stage1.disabled = true;
 			document.forms.info1.stage2.disabled = true;
