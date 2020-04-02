@@ -29,6 +29,10 @@ img[13].src = "img/13.png";
 const can = document.getElementById('result');
 const ctx = can.getContext('2d');
 
+img[1].onload = function(){
+	can.width = img[1].width / 3;
+	can.height = img[1].height / 3;
+}
 
 
 
