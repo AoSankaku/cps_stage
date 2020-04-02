@@ -66,7 +66,7 @@ function autoDetect(){
 		stage[2] = document.forms.info1.stage2.disabled;
 		stage[3] = document.forms.info1.stage3.disabled;
 		let blackchipEnabled = document.forms.info1.blackchipEnabled.checked;
-		let stageType = document.forms.info1.dateCount.value;
+		let stageType = document.forms.info1.stageType.value;
 		
 		
 		//判定を行う
