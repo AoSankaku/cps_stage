@@ -34,7 +34,7 @@ const ctx = can.getContext('2d');
 
 
 function lockStageSelecter(){
-	
+	let detectDay = document.forms.info1.dateCount.value;
 }
 
 
@@ -47,10 +47,13 @@ function generateStageImg(){
 	startDate = startDate.split('-');
 	//入力された日付をDate形式に変換して曜日を簡単に特定、比較できるようにする
 	let startFullDate = new Date( startDate[0], (startDate[1] - 1), startDate[2] );
+	console.log(startFullDate);
 	
 	let dateCount = document.forms.info1.dateCount.value;
 	//入力された日付にstartCountを加算して曜日をこれも特定する
 	let thisDate = new Date( startDate[0], (startDate[1] - 1), (startDate[2] + dateCount - 1));
+	console.log(thisDate);
+	console.log(thisDate.getDay());
 	let dayArray = ['日','月','火','水','木','金','土'];
 	
 	let detectDay = document.forms.info1.dateCount.value;
