@@ -93,10 +93,10 @@ function generateStageImg(){
 			if( a > b ) return 1;
 			return 0;
 		});*/
-
-		ctx.drawImage( img[stage[1]], 0, 0 );
-		ctx.drawImage( img[stage[2]], 828, 0 );
-		ctx.drawImage( img[stage[3]], (828*2), 0 );
+		
+		ctx.drawImage( img[stage[1]], (img[stage[1]].width / 3 * 0), can.height );
+		ctx.drawImage( img[stage[2]], (img[stage[2]].width / 3 * 1), can.height );
+		ctx.drawImage( img[stage[3]], (img[stage[3]].width / 3 * 2), can.height );
 		
 		//ステージを文字配列で記録
 		stageArray.push(stageNames[stage[1] - 1]);
