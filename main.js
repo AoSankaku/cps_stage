@@ -208,3 +208,12 @@ function generateStageImg(){
 
 
 
+
+function copyTweetText(){
+	document.getElementById("tweetText").select()
+	document.execCommand("copy");
+}
+
+
+
+
