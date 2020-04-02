@@ -124,7 +124,7 @@ function generateStageImg(){
 	
 	//let detectDay = document.forms.info1.dateCount.checked;
 	let blackchipEnabled = document.forms.info1.blackchipEnabled.checked;
-	let stageType = document.forms.info1.dateCount.value;
+	let stageType = document.forms.info1.stageType.value;
 	
 	let stage = [];
 	stage[1] = document.forms.info1.stage1.value;
